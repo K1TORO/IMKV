@@ -3,6 +3,7 @@
 #include <condition_variable>
 #include <vector>
 #include <mutex>
+#include <atomic>
 #include <functional>
 #include <thread>
 #include "BlockedQueue.h"
@@ -25,5 +26,5 @@ class ThreadPool{
     vector<BlockedQueue<task_type>> m_thread_queues;
     int m_index;
     condition_variable m_event_holder;
-    volatile bool m_work;
+    atomic<bool> m_work;
 };
